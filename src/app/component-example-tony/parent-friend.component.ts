@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { ChildFriendListComponent } from './child-friend.component'; // childe component를 import함.
 
 import { Friend } from './model/friend.model';
@@ -8,17 +8,49 @@ import { FriendService } from './friend.service';
 @Component({
     // tslint:disable-next-line:component-selector
     selector: 'parent-friend',
+    providers: [FriendService],
     template: `
-        <div>
-            <h2>Welcome {{name}}</h2>
-            <child-friend-list [friends]="friendLeftList" status="left" owner="kenneth" version="1.0.0" (moveItem)="moveLeftItem($event)" (nameChange)="selectedFriend($event)"></child-friend-list>
-            <hr>
-            <child-friend-list [friends]="friendRightList" status="right" owner="kenneth" version="1.0.0" (moveItem)="moveRightItem($event)"></child-friend-list>
+        <div class="list">
+            <h2>Component Example ( with Input, Output )</h2>
+            <div class="flex-container">
+                <child-friend-list 
+                    [friends]="friendLeftList" 
+                    status="left" owner="kenneth" version="2.0.0" 
+                    (moveItem)="moveLeftItem($event)" 
+                    (nameChange)="selectedFriend($event)"></child-friend-list>
+                <child-friend-list 
+                    [friends]="friendRightList" 
+                    status="right" owner="Tony" version="2.0.0" 
+                    (moveItem)="moveRightItem($event)"></child-friend-list>
+            </div>
         </div>
     `,
-    providers: [FriendService]
+    styles: [`
+        .list {
+            background-color:#EFEFEF;
+            border:1px solid #DDD;
+            box-shadow:2px 2px 2px 0 rgba(0, 0, 0, 0.3);
+            border-radius:3px;
+        }
+        .flex-container {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: space-around;
+            justify-content: space-around;
+            width: calc( 100% - 30px );
+            height: 100%;
+            background-color: lightgrey;
+            padding: 10px;
+        }
+        .flex-item {
+            width: 100%;
+            height: 100%;
+            margin: 0px 10px 10px 10px;
+        }
+    `],
+    encapsulation: ViewEncapsulation.Native
 })
-export class ParentFriendComponent {
+export class ParentFriendComponent implements OnInit {
     name: string;
     item: string;
     friendLeftList: Array<Friend>;

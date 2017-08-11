@@ -1,75 +1,88 @@
-import {AfterViewInit, Component, Directive, Input, ViewChild} from '@angular/core';
+import { AfterViewInit, Component, Directive, Input, ViewChild, ViewEncapsulation } from '@angular/core';
 
-    // 예제
-    // tslint:disable-next-line:directive-selector
-    @Directive({ selector: 'item' })
-    // tslint:disable-next-line:directive-class-suffix
-    export class Item {
-        @Input() status: boolean;
-    }
+// 예제
+// tslint:disable-next-line:directive-selector
+@Directive({ selector: 'item' })
+// tslint:disable-next-line:directive-class-suffix
+export class Item {
+    @Input() status: boolean;
+}
 
-    // 실습
-    // tslint:disable-next-line:directive-selector
-    @Directive({ selector: 'items' })
-    // tslint:disable-next-line:directive-class-suffix
-    export class Items {
-        @Input() status1: boolean;
-    }
-
-    @Component({
-        // tslint:disable-next-line:component-selector
-        selector: 'item-component',
-        template: '<button>알림창</button>'
-    })
-    export class ItemComponent {
-        display() {
-            alert('ItemComponent입니다1');
-        }
-    }
-
-
-
-@Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'goods',
-  template: '<button>Good알림창</button>'
-})
-// tslint:disable-next-line:component-class-suffix
-export class Good {
-  displays() {
-      alert('ItemComponent입니다1');
-  }
+// 실습
+// tslint:disable-next-line:directive-selector
+@Directive({ selector: 'items' })
+// tslint:disable-next-line:directive-class-suffix
+export class Items {
+    @Input() status1: boolean;
 }
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'user-profile'
+    // tslint:disable-next-line:component-selector
+    selector: 'item-component',
+    template: '<button>알림창</button>'
+})
+export class ItemComponent {
+    display() {
+        alert('ItemComponent입니다1');
+    }
+}
+
+@Component({
+    // tslint:disable-next-line:component-selector
+    selector: 'goods',
+    template: '<button>Good알림창</button>'
+})
+// tslint:disable-next-line:component-class-suffix
+export class Good {
+    displays() {
+        alert('ItemComponent입니다1');
+    }
+}
+
+@Component({
+    // tslint:disable-next-line:component-selector
+    selector: 'user-profile'
 })
 
 // tslint:disable-next-line:component-class-suffix
 export class UserProfile {
-  constructor() {}
-  sendData() {
-    // send data
-  }
+    constructor() {}
+    sendData() {
+        // send data
+    }
 }
 
-
-
 @Component({
-  selector: 'app-view-child',
-  template: `
-    <item status="false" *ngIf="isShow==false"></item>
-    <item status="true" *ngIf="isShow==true"></item>
-    <button (click)="toggle()">선택</button><br>
-    <items status1="true"></items>
-    isShow : {{isShow}}<br>
-    status : {{status}}<br>
-    item1 : {{status1}}<br>
-
-    <item-component (click)="display()"></item-component>
-    <goods (click)="displayGood()"></goods>
-    `
+    selector: 'app-view-child',
+    template: `
+        <div>
+            <div class="list">
+                <h2>ViewChild Example</h2>
+                <item status="false" *ngIf="isShow==false"></item>
+                <item status="true" *ngIf="isShow==true"></item>
+                <button (click)="toggle()">선택</button><br>
+                <items status1="true"></items>
+                isShow : {{isShow}}<br>
+                status : {{status}}<br>
+                item1 : {{status1}}<br>
+                <item-component (click)="display()"></item-component>
+                <goods (click)="displayGood()"></goods>
+            </div>
+    `,
+    styles: [`
+        .list {
+            background-color:#EFEFEF;
+            margin-bottom:15px;
+            padding:15px;
+            border:1px solid #DDD;
+            box-shadow:2px 2px 2px 0 rgba(0, 0, 0, 0.3);
+            border-radius:3px;
+        }
+        h2 {
+            text-align: center;
+        }
+    `],
+    encapsulation: ViewEncapsulation.Native
 })
 export class ViewChildComponent {
     isShow = true;

@@ -1,6 +1,7 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
+    // tslint:disable-next-line:component-selector
     selector: 'nested-grandson',
     template: `
         <div>자식2
@@ -20,6 +21,6 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
         }
     `],
 })
-export class NestedGrandsonComponent{
-    @Input() codeColor:string;
+export class NestedGrandsonComponent {
+    @Input() codeColor: string;
 }

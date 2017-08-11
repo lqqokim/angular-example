@@ -1,6 +1,7 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
+    // tslint:disable-next-line:component-selector
     selector: 'nested-child',
     template: `
         <div>자식1<br><hr>
@@ -19,33 +20,32 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
         width:35%;
         height:100%;
         }`
-    ],
-    inputs:['name3','BCCodes']
+    ]
 })
 export class NestedChildComponent{
-    //input(예제)
-    @Input() name1:string;
-    @Input() name2:string;
-    name3:string;
-    
-    //input(실습)
-    @Input() BColors:string[];
-    BCCodes:string[];
+    // input(예제)
+    @Input() name1: string;
+    @Input() name2: string;
+    name3: string;
 
-    //output(예제)
+    // input(실습)
+    @Input() BColors: string[];
+    BCCodes: string[];
+
+    // output(예제)
     active = false;
     @Output() outputproperty = new EventEmitter<boolean>();
+    // output(실습)
+    @Output() outputEventColor = new EventEmitter<number>();
 
-    updateParent(active:boolean){
+    updateParent(active: boolean) {
         this.active = !active;
         console.log(active);
         this.outputproperty.emit(this.active);
     }
 
-    //output(실습)
-    @Output() outputEventColor = new EventEmitter<number>();
-
-    chnageBG(color:number){ //배경output
+    // 배경output
+    chnageBG(color:number) { 
         this.outputEventColor.emit(color);
     }
 }

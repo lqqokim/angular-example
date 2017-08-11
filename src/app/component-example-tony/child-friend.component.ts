@@ -18,26 +18,26 @@ import { Friend } from './model/friend.model';
         <input #nameField="ngModel" type='text' placeholder= "Enter Name" [(ngModel)]="friendName">
         <input #ageField="ngModel" type='text' placeholder= "Enter Age" [(ngModel)]="friendAge">
         <button (click)="enterFriend($event)" >Enter</button>
-        <div *ngFor="let f of friends">
+        <div class="list" *ngFor="let f of friends">
             <h3>Name: {{ f.name }}</h3>
             <h4>Age: {{ f.age }}</h4>
             <button (click)="itemMove($event,f)">이동</button>
         </div>
     `,
     styles: [`
-    div {
-         background-color:#EFEFEF;
-         margin-bottom:15px;
-         padding:15px;
-         border:1px solid #DDD;
-         box-shadow:2px 2px 2px 0 rgba(0, 0, 0, 0.3);
-        border-radius:3px;
-      }
-      h2 {
-        text-align: center;
-      }
-  `],
-    encapsulation: ViewEncapsulation.None
+        .list {
+            background-color:#EFEFEF;
+            margin-bottom:15px;
+            padding:15px;
+            border:1px solid #DDD;
+            box-shadow:2px 2px 2px 0 rgba(0, 0, 0, 0.3);
+            border-radius:3px;
+        }
+        h2 {
+            text-align: center;
+        }
+    `],
+    encapsulation: ViewEncapsulation.Native
 })
 // tslint:disable-next-line:max-line-length
 export class ChildFriendListComponent implements OnInit, OnDestroy, DoCheck, OnChanges, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked {

@@ -9,7 +9,7 @@ import { HelloService } from './hello.service';
 export class HelloComponent {
     welcome: string;
 
-    constructor(private helloService:HelloService){
+    constructor(private helloService: HelloService) {
         this.welcome = helloService.sayHello();
     }
 }

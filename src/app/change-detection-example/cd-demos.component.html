@@ -1,0 +1,15 @@
+<h1>Angular 2 Change Detection Demos</h1>
+<p>Pick one of the following:</p>
+<div class="site-nav">
+    <a [routerLink]="['/ChangeDetection', {'outlets': {'cd-routes': ['default-change-detection']}}]" 
+        routerLinkActive="active"><button>Default Change Detection</button></a>
+    <a [routerLink]="['/ChangeDetection', {'outlets': {'cd-routes': ['on-push-change-detection']}}]" 
+        routerLinkActive="active"><button>OnPush Change Detection</button></a>
+    <a [routerLink]="['/ChangeDetection', {'outlets': {'cd-routes': ['on-push-change-detection-observables']}}]" 
+        routerLinkActive="active"><button>OnPush Change Detection (Observables)</button></a>
+    <a [routerLink]="['/ChangeDetection', {'outlets': {'cd-routes': ['manual-change-detection']}}]" 
+        routerLinkActive="active"><button>Manual Change Detection</button></a>
+</div>
+<div>
+    <router-outlet name="cd-routes"></router-outlet>
+</div>

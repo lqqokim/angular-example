@@ -4,6 +4,7 @@ import { User } from './user';
 import { Friend } from './model/promise.model';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'promise',
   template: `
   {{reqMessage}}<br>
@@ -15,8 +16,8 @@ import { Friend } from './model/promise.model';
   providers: [MockService]
 })
 export class PromiseComponent {
-  reqMessage: String ='';
-  reqMessage2: String ='';
+  reqMessage: String = '';
+  reqMessage2: String = '';
 
   listUser: User[];
   listUserDelay: User[];

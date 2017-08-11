@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { User } from './user';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'list-component',
   template: `
   <b>{{title}}</b>

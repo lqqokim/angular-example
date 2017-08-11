@@ -28,6 +28,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
           font-size:20px;
         }
     `],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.Native
 })
 export class ComponentStyleComponent {}

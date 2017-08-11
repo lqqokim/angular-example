@@ -2,47 +2,57 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { L_SEMANTIC_UI_MODULE } from 'angular2-semantic-ui';
+
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ViewChildComponent } from './view-child/viewchild.component';
-import { Item } from './view-child/viewchild.component';
-import { ItemComponent } from './view-child/viewchild.component';
-import { Good } from './view-child/viewchild.component';
-import { Items } from './view-child/viewchild.component';
 
-import { FriendComponent } from './component-example/child-friend.component';
-import { FriendListComponent } from './component-example/parent-friend.component';
-
-import { ChildFriendListComponent } from './component-example-tony/child-friend.component';
-import { ParentFriendComponent } from './component-example-tony/parent-friend.component';
-
-import { RxjsComponent } from './rxjs-component/rxjs-example';
-import { ScoreComponent } from './rxjs-component/rxjs-example-communication';
-import { RxjsLoginComponent } from './rxjs-component/rxjs-example-form-login';
+/* 특징 모듈 */
+import { ViewChildModule } from './view-child/viewChaild.module';
+import { FriendModule } from './component-example/friend.module';
+import { RxjsModule } from './rxjs-component/rxjs.module';
+import { ContentChildModule } from './content-child-example/contentChild.module';
+import { ChildFriendModule } from './component-example-tony/childFriend.module';
+import { RoutingExModule } from './routing-example/routing-ex-module';
+import { FileReadModule } from './file-read-example/file-read.module';
+import { DynamicComponentModule } from './dynamic-component-example/dynamic-component.module';
+import { PipeModule } from './pipe-example/pipe.module';
+import { BookListModule } from './mongodb-example/book.module';
+import { TypescriptComponent } from './typescript-example/typescript-example.component';
+import { CdDemosAppModule } from './change-detection-example/index';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ViewChildComponent,
-    Item,
-    ItemComponent,
-    Good,
-    Items,
-    FriendComponent,
-    FriendListComponent,
-    ChildFriendListComponent,
-    ParentFriendComponent,
-    RxjsComponent,
-    ScoreComponent,
-    RxjsLoginComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    ReactiveFormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        TypescriptComponent
+    ],
+    imports: [
+        L_SEMANTIC_UI_MODULE,
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        ReactiveFormsModule,
+        AppRoutingModule,
+        ViewChildModule,
+        FriendModule,
+        RxjsModule,
+        ContentChildModule,
+        ChildFriendModule,
+        RoutingExModule,
+        FileReadModule,
+        DynamicComponentModule,
+        CdDemosAppModule
+    ],
+    exports: [
+        AppComponent,
+        PipeModule,
+        BookListModule,
+        TypescriptComponent
+    ],
+    providers: [],
+    bootstrap: [
+        AppComponent
+    ]
 })
 export class AppModule { }

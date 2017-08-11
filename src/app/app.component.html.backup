@@ -1,0 +1,16 @@
+<!--The whole content below can be removed with the new code.-->
+<div style="text-align:center">
+  <a routerLink="/routingEx" routerLinkActive="active"><button>라우팅</button></a>
+  <a routerLink="/ViewChild" routerLinkActive="active"><button>ViewChild</button></a>
+  <a routerLink="/viewchildren" routerLinkActive="active"><button>ViewChildren</button></a>
+  <a routerLink="/FriendList" routerLinkActive="active"><button>Component 1.0</button></a><br />
+  <a routerLink="/ParentFriend" routerLinkActive="active"><button>Component 2.0</button></a>
+  <a routerLink="/RxjsComponent" routerLinkActive="active"><button>Rxjs service</button></a>
+  <a routerLink="/RxjsLoginComponent" routerLinkActive="active"><button>Rxjs Login</button></a>
+  <a routerLink="/ContentChildComponent" routerLinkActive="active"><button>ContentChild</button></a>
+  <a routerLink="/PipeComponent" routerLinkActive="active"><button>Pipe</button></a>
+  <a routerLink="/BookListComponent" routerLinkActive="active"><button>MongoDB Ex</button></a>
+  <a routerLink="/TypescriptComponent" routerLinkActive="active"><button>Typescript Ex</button></a>
+
+  <router-outlet></router-outlet>
+</div>

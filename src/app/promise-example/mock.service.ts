@@ -5,17 +5,9 @@ import { Friend } from './model/promise.model';
 
 @Injectable()
 export class MockService {
-  getUser(): Promise<User[]> {
-    return Promise.resolve(USERS);
-  }
-
-  getUserDelay(): Promise<User[]> {
-    return new Promise<User[]>(resolve =>
-      setTimeout(resolve, 1000))
-      .then(() => this.getUser());
-  }
 
   friends: Array<Friend>;
+
   constructor() {
     // let f:Friend = new Friend();//그러나 변수를 이용하여 사용하려면 import 해야함.
       this.friends = [
@@ -36,22 +28,31 @@ export class MockService {
               ];
   }
 
+  getUser(): Promise<User[]> {
+    return Promise.resolve(USERS);
+  }
+
+  getUserDelay(): Promise<User[]> {
+    return new Promise<User[]>(resolve =>
+      setTimeout(resolve, 1000))
+      .then(() => this.getUser());
+  }
+
   getFriends(): Promise<Friend[]> {
-      //alert(this.friends.length);
+      // alert(this.friends.length);
     return Promise.resolve(this.friends);
   }
 
   getRequest(status: boolean): Promise<any> {
-
     if (status) {
-      return Promise.resolve("요청을 승낙합니다.").then(function (reason) {
+      return Promise.resolve('요청을 승낙합니다.').then(function (reason) {
         return reason;
       }, function (reason) {
-        return "NO";
+        return 'NO';
       });
     } else {
-      return Promise.reject("요청을 거부합니다.").then(function (reason) {
-        return "YES";
+      return Promise.reject('요청을 거부합니다.').then(function (reason) {
+        return 'YES';
       }, function (reason) {
         return reason;
       });
